@@ -5,8 +5,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Load trained model and dataset
-model = joblib.load("virality_model.joblib")
-data = pd.read_csv("Realistic_Viral_Post_Dataset.csv")
+model = joblib.load("virality_pipeline.joblib")
+data = pd.read_csv("viral_posts.csv")
+from sklearn.feature_extraction.text import TfidfVectorizer
+
 
 # App Header
 st.title("🔥 Virality Predictor AI")
@@ -64,3 +66,4 @@ with st.expander("📊 Engagement Curve from Dataset"):
         st.pyplot(fig)
     else:
         st.warning("Dataset does not include 'engagement' column.")
+        
